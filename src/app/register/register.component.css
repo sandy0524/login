@@ -1,0 +1,87 @@
+body {
+    background-image: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url(background.jpg);
+    font-family: 'Poppins', sans-serif;
+    margin-left: 350px;
+    width:0;
+ }
+
+ 
+#form {
+    width: 400px;
+    margin: 10vh auto 0 auto;
+    padding: 20px;
+    background-color: rgb(144, 230, 160);
+    border-radius: 20px;
+    font-size: 12px;
+}
+ 
+#form h1 {
+    color: #0f2027;
+    text-align: center;
+}
+
+#form button {
+    padding: 10px;
+    margin-top: 10px;
+    width: 50%;
+    color: white;
+    background-color: rgb(1, 2, 2);
+    border: none;
+    border-radius: 20px;
+    margin-left: 25%;
+}
+
+.input-control {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-control input {
+    border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-size: 12px;
+	padding: 10px;
+	width: 100%;
+}
+
+
+.input-control select {
+    border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-size: 12px;
+	padding: 10px;
+	width: 100%;
+}
+
+.input-control input:focus {
+    outline: 0;
+}
+
+.input-control.success input {
+    border-color: #09c372;
+}
+
+.input-control.error input {
+    border-color: #ff3860;
+}
+.input-control.success select {
+    border-color: #09c372;
+}
+
+.input-control.error select {
+    border-color: #ff3860;
+}
+
+.input-control .error {
+    color: #ff3860;
+    font-size: 9px;
+    height: 13px;
+}
+.exist{
+    font-size: 12px;
+     text-align: end;
+     margin-right: 40px;
+     color:rgb(7, 0, 0);
+}

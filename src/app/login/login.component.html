@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.component.css">
+</head>
+<body>
+    
+<div class="container">
+    <form id="form" action="home">
+        <h1>Login</h1>
+        <div class="input-control">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text">
+            <div class="error"></div>
+        </div>
+        <div class="input-control">
+            <label for="password">Password</label>
+            <input id="password"name="password" type="password">
+            <div class="error"></div>
+        </div>
+       
+        <button type="submit"  >Login</button><br><br>
+              
+    </form>
+
+     
+</div>
+ 
+
+<script>const form = document.getElementById('form');
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+    
+    
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+    
+        validateInputs();
+    });
+    
+    const setError = (element, message) => {
+        const inputControl = element.parentElement;
+        const errorDisplay = inputControl.querySelector('.error');
+    
+        errorDisplay.innerText = message;
+        inputControl.classList.add('error');
+        inputControl.classList.remove('success')
+    }
+    
+    const setSuccess = element => {
+        const inputControl = element.parentElement;
+        const errorDisplay = inputControl.querySelector('.error');
+    
+        errorDisplay.innerText = '';
+        inputControl.classList.add('success');
+        inputControl.classList.remove('error');
+    };
+    
+ 
+    const validateInputs = () => {
+        const usernameValue = username.value.trim();
+        const passwordValue = password.value.trim();
+    
+    
+        if(usernameValue === '') {
+            setError(username, 'Username is required');
+        } else {
+            setSuccess(username);
+        }
+    
+    
+        if(passwordValue === '') {
+            setError(password, 'Password is required');
+        } else if (passwordValue.length < 8 ) {
+            setError(password, 'Password must be at least 8 character.')
+        } else {
+            setSuccess(password);
+        }
+    
+      
+    
+        
+    
+    };
+    </script>
+</body>
+</html>

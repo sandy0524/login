@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    
+<div class="container">
+    <form id="form" action="#">
+        <h1>Login</h1>
+        <div class="input-control">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text">
+            <div class="error"></div>
+        </div>
+        <div class="input-control">
+            <label for="password">Password</label>
+            <input id="password"name="password" type="password">
+            <div class="error"></div>
+        </div>
+       
+        <button type="submit"  >Login</button><br><br>
+              
+    </form>
+
+     
+</div>
+<style>
+
+body {
+background: #ca7272;
+
+    font-family: 'Poppins', sans-serif;
+}
+
+#form {
+    width: 400px;
+    margin: 25vh auto 0 auto;
+    padding: 20px;
+    background-color: rgb(214, 159, 215);
+    border-radius: 20px;
+    font-size: 12px;
+}
+ 
+#form h1 {
+    color: #0f2027;
+    text-align: center;
+font-size: x-large;     
+}
+
+#form button {
+    padding: 10px;
+    margin-top: 10px;
+    width: 50%;
+    color: white;
+    background-color: rgb(1, 2, 2);
+    border: none;
+    border-radius: 20px;
+    align-self: center;
+    margin-left: 25%;
+}
+
+.input-control {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-control input {
+    border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-size: 12px;
+	padding: 10px;
+	width: 80%;
+    margin-left: 5%;
+}
+
+
+.input-control select {
+    border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-size: 12px;
+	padding: 10px;
+	width: 100%;
+}
+
+.input-control input:focus {
+    outline: 0;
+}
+
+.input-control.success input {
+    border-color: #09c372;
+}
+
+.input-control.error input {
+    border-color: #ff3860;
+}
+.input-control.success select {
+    border-color: #09c372;
+}
+
+.input-control.error select {
+    border-color: #ff3860;
+}
+
+.input-control .error {
+    color: #ff3860;
+    font-size: 9px;
+    height: 13px;
+}
+.exist{
+    font-size: 12px;
+     text-align: end;
+     margin-right: 40px;
+     color:rgb(7, 0, 0);
+}
+</style>
+
+<script>const form = document.getElementById('form');
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+    
+    
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+    
+        validateInputs();
+    });
+    
+    const setError = (element, message) => {
+        const inputControl = element.parentElement;
+        const errorDisplay = inputControl.querySelector('.error');
+    
+        errorDisplay.innerText = message;
+        inputControl.classList.add('error');
+        inputControl.classList.remove('success')
+    }
+    
+    const setSuccess = element => {
+        const inputControl = element.parentElement;
+        const errorDisplay = inputControl.querySelector('.error');
+    
+        errorDisplay.innerText = '';
+        inputControl.classList.add('success');
+        inputControl.classList.remove('error');
+    };
+    
+ 
+    const validateInputs = () => {
+        const usernameValue = username.value.trim();
+        const passwordValue = password.value.trim();
+    
+    
+        if(usernameValue === '') {
+            setError(username, 'Username is required');
+        } else {
+            setSuccess(username);
+        }
+    
+    
+        if(passwordValue === '') {
+            setError(password, 'Password is required');
+        } else if (passwordValue.length < 8 ) {
+            setError(password, 'Password must be at least 8 character.')
+        } else {
+            setSuccess(password);
+        }
+    
+      
+    
+        
+    
+    };
+    </script>
+</body>
+</html>
